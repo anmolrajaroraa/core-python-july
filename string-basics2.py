@@ -223,4 +223,40 @@ AttributeError: 'list' object has no attribute 'join'
 ['hello jenny. whats going on with ', 'wayne Rock Johnson']
 >>> str1.split('Dwayne')
 ['hello jenny. whats going on with ', ' Rock Johnson']
->>> 
+str1 = "Dwayne Rock Johnson"
+>>> str1 = "              Dwayne Rock Johnson                "
+>>> str1.strip()
+'Dwayne Rock Johnson'
+>>> strip is going to remove trailing and leading spaces
+SyntaxError: invalid syntax
+>>> # strip is going to remove trailing and leading spaces
+>>> str1 = "              Dwayne        Rock Johnson                "
+>>> str1.strip()
+'Dwayne        Rock Johnson'
+>>> str1 = "Dwayne Rick Johnson"
+>>> str1.replace("i", "o")
+'Dwayne Rock Johnson'
+>>> str1.replace("o", "i")
+'Dwayne Rick Jihnsin'
+>>> # string is immutable
+>>> str1[0]
+'D'
+>>> del str1[0]
+Traceback (most recent call last):
+  File "<pyshell#12>", line 1, in <module>
+    del str1[0]
+TypeError: 'str' object doesn't support item deletion
+>>> str1[0] = "G"
+Traceback (most recent call last):
+  File "<pyshell#13>", line 1, in <module>
+    str1[0] = "G"
+TypeError: 'str' object does not support item assignment
+>>> id(str1)
+4549044168
+>>> new_str = str1.replace('o', 'i')
+>>> id(new_str)
+4545575936
+>>> str1
+'Dwayne Rick Johnson'
+>>> new_str
+'Dwayne Rick Jihnsin'
