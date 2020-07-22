@@ -42,6 +42,8 @@ for i in range(50): pen.circle(5 * i)
 
 #for i in range(10):
 while True:   # infinite loop
+    pen.fillcolor('darkblue')
+    pen.begin_fill()
     user_input = input("Enter shape name:")
     if user_input == "circle":
         pen.circle(100)
@@ -63,5 +65,6 @@ while True:   # infinite loop
             pen.left(72)
     else:
         print("Shape doesn't exist")
-            
+
+    pen.end_fill()        
    
