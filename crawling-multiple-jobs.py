@@ -1,7 +1,16 @@
 from bs4 import BeautifulSoup as BS
 from urllib.request import urlopen
+from urllib.parse import urlencode
+from babel.numbers import format_currency
 
-URL = "https://www.indeed.co.in/jobs?q=python&l="
+query = input("Job title, keywords or company name: ")
+salary = int(input("Min monthly salary: "))
+salary = format_currency(salary*12, "INR")
+query = query + salary[:-3]
+location = input("Location: ")
+URL = f"https://www.indeed.co.in/jobs?"
+URL = URL + urlencode({"q": query, "l": location})
+print(URL)
 
 response = urlopen(URL)
 htmlSourceCode = BS(response, 'lxml')
@@ -10,9 +19,9 @@ jobs = htmlSourceCode.find_all(
     'div', 'jobsearch-SerpJobCard')
 print(len(jobs))
 # print(jobs)
-for job in jobs:
+for counter, job in enumerate(jobs):
     heading = job.find('a', 'jobtitle')
-    print("Job Title - ", heading.text.strip())
+    print((counter + 1), ". Job Title - ", heading.text.strip())
     companyName = job.find('span', 'company')
     print("Company name - ", companyName.text.strip())
     jobSummary = job.find('div', 'summary')
