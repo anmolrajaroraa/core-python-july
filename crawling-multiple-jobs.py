@@ -2,10 +2,13 @@ from bs4 import BeautifulSoup as BS
 from urllib.request import urlopen
 from urllib.parse import urlencode
 from babel.numbers import format_currency
+from money import Money
 
 query = input("Job title, keywords or company name: ")
-salary = int(input("Min monthly salary: "))
-salary = format_currency(salary*12, "INR")
+salary = input("Min annual salary: ")
+m = Money(salary, 'INR')
+salary = m.format('hi_IN')
+# salary = format_currency(salary*12, "INR")
 query = query + salary[:-3]
 location = input("Location: ")
 URL = f"https://www.indeed.co.in/jobs?"

@@ -10,6 +10,7 @@
 # file close, database connetion closing, user thanku msg
 while True:
     try:
+        file = None
         num1 = int(input("Enter first number: "))
         num2 = int(input("Enter second number: "))
         q = num1 / num2
@@ -21,7 +22,6 @@ while True:
         file = open('patterns.py')
         print(file.read())
         file.close()
-        break
     except ValueError:
         print("Only integers are allowed...")
     except ZeroDivisionError:
@@ -30,6 +30,9 @@ while True:
         print("Some error occured...", error)
     except BaseException as error:
         print("Some error occured...", error)
+    else:
+        print("Everything worked perfectly")
+        break
     finally:
         print("Finally ran...")
         if file != None:
