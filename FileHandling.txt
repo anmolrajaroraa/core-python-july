@@ -1,0 +1,35 @@
+dgijbmkndling
+
+Modes -
+1. Read
+- File should exist, if not found error will be raised
+- You won't be able to write to the file
+
+2. Write
+- If file does not exist, I will create it
+- If file exists, then I will delete the data first if present and then start writing the data to the file
+- You won't be able to read from the file
+
+3. Append
+- If file does not exist, I will create it
+- If file exists, then also I will not delete data and I will start writing the data to the end of file
+- You won't be able to read from the file
+
+4. r+
+- File should exist, if not found error will be raised
+- You will be able to write to the file, by overwriting the data, not deleting everything up front
+
+5. w+
+- If file does not exist, I will create it
+- If file exists, then I will delete the data first if present and then start writing the data to the file
+- You will be able to read from the file
+
+6. a+
+- If file does not exist, I will create it
+- If file exists, then also I will not delete data and I will start writing the data to the end of file
+- You will be able to read from the file
+
+7. rb
+8. wb
+9. csv
+line pinted by a+ mode
