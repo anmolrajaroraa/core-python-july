@@ -18,8 +18,8 @@ red = 242, 29, 29
 color = random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
 x = 100
 y = 100
-moveX = 1
-moveY = 1
+moveX = 5
+moveY = 5
 
 while True:
     for event in pygame.event.get():
@@ -34,5 +34,14 @@ while True:
 
     # surface, color, (x,y), radius
     pygame.draw.circle(screen, color, (x, y), 50)
+
+    if y > 450:
+        moveY = random.randint(-10, -5)  # -3 , -1
+    if x > 850:
+        moveX = random.randint(-10, -5)
+    if y < 50:
+        moveY = random.randint(5, 10)
+    if x < 50:
+        moveX = random.randint(5, 10)
 
     pygame.display.update()
